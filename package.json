@@ -1,0 +1,33 @@
+{
+  "name": "timepass",
+  "version": "1.0.0",
+  "description": "just for time pass",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashwintastic/time_pass.git"
+  },
+  "keywords": [
+    "time",
+    "pass"
+  ],
+  "author": "ashwintastic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashwintastic/time_pass/issues"
+  },
+  "homepage": "https://github.com/ashwintastic/time_pass#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
+}
