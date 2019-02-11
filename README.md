@@ -1,1 +1,1 @@
-# time_pass
+# 10 gags
