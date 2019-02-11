@@ -1,0 +1,2 @@
+import orm from './orm'
+

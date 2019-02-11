@@ -1,10 +1,10 @@
-import HomeController from '../src/controller/home_controller'
+import ContentController from '../src/controller/content_controller'
 const routes = [
     {
-        path: '/er',
-        action: HomeController.index
+        path: '/',
+        action: ContentController.index,
+        verb: 'get'
     }
 ];
 
 export default routes
-
