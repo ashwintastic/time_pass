@@ -1,6 +1,14 @@
-class Content {
+import { Content } from '../../config/db/contentModel';
+
+Content.index = function(){
 
 
-}
+};
 
-export default new Content()
+Content.prototype.show = function(){
+ console.log('hi')
+};
+
+
+
+export default Content
