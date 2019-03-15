@@ -1,6 +1,6 @@
 import ContentController from '../src/controller/content_controller';
 import AdminController from '../src/controller/admin_controller'
-
+import AuthenticationController from '../src/controller/authentication_controller'
 const ContentCtrl = new ContentController();
 
 const routes = [
@@ -20,7 +20,13 @@ const routes = [
         path: '/create-content',
         action: ContentCtrl.create,
         verb: 'post',
-        acceptFile: true
+        acceptFile: true,
+        authRequired: true
+    },
+    {
+        path: '/facebook/callback',
+        action: AuthenticationController.faceBookcallBack,
+        verb: 'post'
     }
 ];
 

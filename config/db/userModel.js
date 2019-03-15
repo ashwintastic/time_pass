@@ -5,18 +5,21 @@ export const User = sequelize.define('user', {
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    firstName: {
-        type: Sequelize.STRING
-    },
-    lastName: {
+    name: {
         type: Sequelize.STRING
     },
     email: {
         type: Sequelize.STRING
     },
-
-    password: {
+    token: {
+        type: Sequelize.STRING
+    },
+    fbID: {
+        type: Sequelize.STRING
+    },
+    userName: {
         type: Sequelize.STRING
     }
+
 });
 

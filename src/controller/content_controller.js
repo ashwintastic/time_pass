@@ -7,17 +7,20 @@ class ContentController extends AppController {
 
     constructor(props){
         super(props);
-        //this.permittedParams = this.whiteListedParams()
     }
 
     index(req, res){
+      var allcontents = Content.findAll().then( function(resp){
+          res.send(resp)
+      });
 
     }
 
     create(req, res){
+        console.log('create----------------------', this)
         var filepath = FileUploader.saveImageToDir(req.files[0]);
         filepath.then(function(response){
-            console.log('reqponse after saving files', response);
+            console.log('reqponse after saving files');
             Content.create({type: response.type, path: response.path}).then(function(r){
                 res.send({ status: 200})
             })

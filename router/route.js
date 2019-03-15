@@ -26,16 +26,9 @@ routes.map(function(route){
             break;
         default:
         // code block
+
     }
 
 });
 
-function routesForNonGetRequest (route) {
-    if (route.hasOwnProperty('acceptFile')){
-        constants.app.patch(route.path, upload.any(), route.action);
-    }
-    else {
-        constants.app.patch(route.path, route.action);
-    }
 
-}
