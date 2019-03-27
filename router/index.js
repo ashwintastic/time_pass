@@ -7,7 +7,8 @@ const routes = [
     {
         path: '/',
         action: ContentCtrl.index,
-        verb: 'get'
+        verb: 'get',
+        authRequired: true
     },
 
     {

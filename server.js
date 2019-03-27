@@ -1,28 +1,38 @@
+import * as expressConfigs from './includeExpress';
+import  bodyParser from 'body-parser';
+import  cors from 'cors';
+import {authRequired, isValidRequest} from './src/helper/middleWareEnhancer';
 
-const express = require('express');
-const port = 3003;
-const app = express();
+expressConfigs.app.use(cors());
+expressConfigs.app.use(bodyParser.json());
+expressConfigs.app.use(bodyParser.urlencoded({ extended: true}));
 
+expressConfigs.app.use( function(req, res, next){
+    req.authRequired = authRequired;
+    req.isValidRequest = isValidRequest;
+    console.log('hey server called:',req.authRequired() );
 
-app.use( function(req, res, next){
-    console.log('hey server called:');
+    if(req.authRequired()){
+        if(!req.isValidRequest()) {
+            res.send({status: 403, message: 'Unauthorize request'})
+            return
+        }
+    }
+
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "*");
     next();
 });
 
-
-app.get('/', function(req, res, next){
-    console.log('hey im called');
-    res.send({message: 'hi'})
-});
+require('./config/db/dataBase');
+require('./router/route');
 
 
-const server = app.listen(port, function(error){
+const server = expressConfigs.app.listen(expressConfigs.port, function(error){
     if (error){
         console.log(`Error: ${error}`)
         return
     }
-    console.log(`server is listining on ${port}, ${this}`)
+    console.log(`server is listining on ${expressConfigs.port}`)
 });
 
